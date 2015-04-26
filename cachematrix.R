@@ -4,21 +4,33 @@
 # above. If the inverse has already been calculated (and the matrix has not changed), then the cachesolve should retrieve the inverse from the cache.
 
 
-## makeCacheMatrix: 
+# makeCacheMatrix: 
 # Arguments: Accepts a matrix x as input
-# Value: Returns a list containing functions to
+# Return Value: Returns a list containing functions to
 # set the root matrix
 # get the root matrix
 # set the inverse of the matrix
 # get the inverse of the matrix 
 makeCacheMatrix <- function(x = matrix()) {
-
+    # i caches the inverse of x 
+    i <- matrix()
+    set <- function(y) {
+        x <<- y
+        i <<- matrix()
+    }
+    get <- function() x
+    setinverse <- function(inverse = matrix()) i <<- inverse
+    getinverse <- function() i
+    list(set = set, get = get,
+         setinverse = setinverse,
+         getinverse = getinverse)
 }
 
 
-## cacheSolve: 
+# cacheSolve: 
 # Arguments: Accepts a matrix x as input
-# Value: Returns inverse of matrix x
+# Return Value: Returns inverse of matrix x
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+    ## Return a matrix that is the inverse of 'x'
+    
 }
